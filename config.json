@@ -6,8 +6,8 @@
   },
   "links_replacements": [
     {
-      "target": "\"communitty.html\"",
-      "replace_by": "\"/communitty\""
+      "target": "\"community.html\"",
+      "replace_by": "\"/community\""
     },
     {
       "target": "\"old-home-2.html\"",
