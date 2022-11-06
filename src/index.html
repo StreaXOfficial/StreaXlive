@@ -1,5 +1,5 @@
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
-<!--  Last Published: Sat Nov 05 2022 22:48:56 GMT+0000 (Coordinated Universal Time)  -->
+<!--  Last Published: Sun Nov 06 2022 08:38:24 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="636676f5943c1a622bd4f0a2" data-wf-site="636676f5943c1a580dd4f0a1">
 <head>
   <meta charset="utf-8">
@@ -29,7 +29,7 @@
         </div>
         <nav role="navigation" id="w-node-c693b006-7a96-11bf-bcb0-caaf78508071-78508067" class="nav-menu w-nav-menu">
           <a href="index.html" aria-current="page" class="link-block w-inline-block w--current"><img src="images/Frame.svg" loading="lazy" alt=""></a>
-          <a href="communitty.html" class="link-block w-inline-block"><img src="images/Frame-1.svg" loading="lazy" alt=""></a>
+          <a href="community.html" class="link-block w-inline-block"><img src="images/Frame-1.svg" loading="lazy" alt=""></a>
           <a href="#" class="link-block w-inline-block"><img src="images/Frame-2.svg" loading="lazy" alt=""></a>
           <a href="#" class="link-block w-inline-block"><img src="images/Frame-3.svg" loading="lazy" alt=""></a>
         </nav>
@@ -158,7 +158,7 @@
                     </div>
                   </div>
                 </div><img src="images/Three-Dot.svg" loading="lazy" alt="">
-              </div><img src="images/apecoin.jpg" loading="lazy" srcset="images/apecoin.jpg 500w, images/apecoin.jpg 800w" sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 58vw, 63vw" alt="">
+              </div><img src="images/apecoin.jpg" loading="lazy" srcset="images/apecoin.jpg 500w, images/apecoin.jpg 800w, images/apecoin.jpg 900w" sizes="(max-width: 479px) 100vw, (max-width: 767px) 46vw, (max-width: 991px) 58vw, 63vw" alt="">
               <div class="reaction-wrapper">
                 <div class="div-block-13"><img src="images/bx_like.svg" loading="lazy" alt=""><img src="images/fluent_chat-16-regular.svg" loading="lazy" alt=""><img src="images/akar-icons_arrow-up-right.svg" loading="lazy" alt=""></div><img src="images/Save.svg" loading="lazy" alt="">
               </div>
@@ -247,7 +247,7 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="w-inline-block">
+            <a href="#" class="link-block-3 w-inline-block">
               <div class="div-block-16 add-widget">
                 <div class="last-add-widget-wrapper">
                   <div class="text-block-2">Add Widgets</div><img src="images/Vector.svg" loading="lazy" alt="">
@@ -266,12 +266,15 @@
 document.getElementById('btn-connect').addEventListener('click', event => {
   let account;
   let button = event.target;
-  ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
-    account = accounts[0];
-    console.log(account);
-    button.textContent = account;
-    document.querySelector(".Wall-Add").textContent = account;
-  });
+  (async () => {
+  try {
+    account = await window.ic.plug.requestConnect();
+    console.log(`The connected user's public key is:`, account);
+  } catch (e) {
+    console.log(e);
+  }
+  button.textContent = window.ic.plug.accountId.substring(0,5).concat("...",window.ic.plug.accountId.slice(-5));
+})();
 });
 </script>
 </body>
