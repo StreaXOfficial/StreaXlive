@@ -1,0 +1,69 @@
+{
+  "project": {
+    "src_path": "src",
+    "build_path": "dist",
+    "root_file_name": "index.html"
+  },
+  "links_replacements": [
+    {
+      "target": "\"communitty.html\"",
+      "replace_by": "\"/communitty\""
+    },
+    {
+      "target": "\"old-home-2.html\"",
+      "replace_by": "\"/old-home-2\""
+    },
+    {
+      "target": "\"search.html\"",
+      "replace_by": "\"/search\""
+    },
+    {
+      "target": "\"index.html\"",
+      "replace_by": "\"/\""
+    }
+  ],
+  "file_links_replacement": [
+    {
+      "target": "\"css/",
+      "replace_by": "\"../css/"
+    },
+    {
+      "target": "images/",
+      "replace_by": "../images/"
+    },
+    {
+      "target": "\"js/",
+      "replace_by": "\"../js/"
+    }
+  ],
+  "transforms": [
+    {
+      "name": "communitty",
+      "filepath": "communitty.html",
+      "move_to_subfolder": true,
+      "apply_links_replacements": true,
+      "apply_file_links_replacements": true
+    },
+    {
+      "name": "old-home-2",
+      "filepath": "old-home-2.html",
+      "move_to_subfolder": true,
+      "apply_links_replacements": true,
+      "apply_file_links_replacements": true
+    },
+    {
+      "name": "search",
+      "filepath": "search.html",
+      "move_to_subfolder": true,
+      "apply_links_replacements": true,
+      "apply_file_links_replacements": true
+    },
+    {
+      "name": "index",
+      "filepath": "index.html",
+      "move_to_subfolder": false,
+      "apply_links_replacements": true,
+      "apply_file_links_replacements": false
+    }
+  ]
+}
